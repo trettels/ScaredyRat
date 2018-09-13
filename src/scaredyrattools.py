@@ -137,8 +137,10 @@ def find_postshocks(df, ntones):
             tone = df[df[label] == 1] #Tone dataframe
         toneend = tone.iloc[-1] #Time for tone end
 
-        starttime = math.floor(toneend['Recording time'] + 5) #Time for pshock start
-        endtime = math.floor(toneend['Recording time'] + 35) #Time for pshock end
+        #starttime = math.floor(toneend['Recording time'] + 5) #Time for pshock start
+        #endtime = math.floor(toneend['Recording time'] + 35) #Time for pshock end
+        starttime = math.floor(toneend['Recording time'] + 0) #Time for pshock start
+        endtime = math.floor(toneend['Recording time'] + 15) #Time for pshock end
         itime = df.index.get_loc(starttime,method='bfill') #Index for pshock start
         etime = df.index.get_loc(endtime,method='bfill') #Index for pshock end
 
